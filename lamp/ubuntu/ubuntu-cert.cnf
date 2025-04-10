@@ -8,10 +8,10 @@ countryName = US
 stateOrProvinceName = Massachusetts
 localityName = Marlboro
 organizationName = Aqueduct Technologies, Inc.
-commonName = 
+commonName = ${HOSTNAME}
 [ req_ext ]
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = 
-DNS.2 = 
-IP.1 = 
+DNS.1 = ${HOSTNAME}
+DNS.2 = ${FQDN}
+IP.1 = ${SERVER_IP}
