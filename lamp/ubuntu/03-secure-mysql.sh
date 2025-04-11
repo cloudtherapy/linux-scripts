@@ -26,13 +26,13 @@ _EOF_
 # Predicate that returns exit status 0 if the database service is running,
 # a nonzero exit status otherwise.
 is_service_available() {
-	service mysql status > /dev/null 2>&1
+	sudo service mysql status > /dev/null 2>&1
 }
 
 # Predicate that returns exit status 0 if the database root password
 # is set, a nonzero exit status otherwise.
 is_mysql_root_password_set() {
-  ! mysqladmin --user=root status > /dev/null 2>&1
+  ! sudo mysqladmin --user=root status > /dev/null 2>&1
 }
 
 # Predicate that returns exit status 0 if the mysql(1) command is available,
@@ -73,7 +73,7 @@ if is_mysql_root_password_set; then
   exit 0
 fi
 
-mysql --user=root <<_EOF_
+sudo mysql --user=root <<_EOF_
   UPDATE mysql.user SET Password=PASSWORD('${db_root_password}') WHERE User='root';
   DELETE FROM mysql.user WHERE User='';
   DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
