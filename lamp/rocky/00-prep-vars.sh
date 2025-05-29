@@ -10,10 +10,10 @@ HOSTNAME=$(hostname)
 FQDN=$(hostname -f)
 
 # Path to the ssl-ubuntu.conf file
-SSL_CONF_FILE="ssl-ubuntu.conf"
+SSL_CONF_FILE="ssl-rocky.conf"
 
 # Path to the ubuntu-cert.cnf file
-CERT_CONF_FILE="ubuntu-cert.conf"
+CERT_CONF_FILE="rocky-cert.conf"
 
 # Update ssl-ubuntu.conf
 if [[ -f "$SSL_CONF_FILE" ]]; then
